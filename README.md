@@ -4,5 +4,5 @@ Simulation code is organized with simulated data, cross validation with tidymode
 
 This work is conducted by Lauren D Liao, Alan E Hubbard, and Alejandro Schuler. Please submit an issue for any questions or concerns.
 
-Please cite the paper if you are using any part of this code. (Example in Vancouver style below)  
+Please cite the paper (Example in Vancouver style below): 
 Liao LD, Hubbard AE, Schuler A. Transfer Learning With Efficient Estimators to Optimally Leverage Historical Data in Analysis of Randomized Trials. arXiv preprint arXiv:2305.19180. 2023 May 30.
