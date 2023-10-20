@@ -3,10 +3,10 @@ library(magrittr)
 library(tidyverse)
 library(furrr)
 
-source("~/transfer_learning_prog/sim_pipe2/dgp2.R")
-source("~/transfer_learning_prog/sim_pipe2/discreteSL.R")
-source("~/transfer_learning_prog/sim_pipe2/estimators.R")
-source("~/transfer_learning_prog/sim_pipe2/experiment_asym.R")
+source("dgp.R")
+source("discreteSL.R")
+source("estimators.R")
+source("experiment_asym.R")
 
 res <- function(results, truth =  -0.8) {
   results %>%
@@ -28,38 +28,7 @@ res <- function(results, truth =  -0.8) {
 
 plan(multisession, workers=59)
 
-
-# constant effect big hist. n ---------------------------------------------
-
-params = expand_grid(
-  n_hist=c(50^2), 
-  n_trial=c(50), 
-  p=c(20),
-  y_noise=c(2), 
-  shift_W1=c(0), # historical only
-  shift_U=c(0), # historical only
-  dgp_string =c("heterogeneous") 
-)
-results50 = 1:10 %>% future_map_dfr(~params %>% pmap_df(experiment),
-                                      .options = furrr_options(seed = 3021377))
-
-saveRDS(results50, file = "sim_pipe2/results1000/sp1_asym_50_10runs.RDS")
-
-
-# # specification 01
-# params = expand_grid(
-#   n_hist=c(50^2), 
-#   n_trial=c(50), 
-#   p=c(20),
-#   y_noise=c(2), 
-#   shift_W1=c(0), # historical only
-#   shift_U=c(0), # historical only
-#   dgp_string =c("constant") 
-# )
-# results50 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
-#                                     .options = furrr_options(seed = 3021377))
-# 
-# saveRDS(results50, file = "sim_pipe2/results1000/sp01_asym_50_1000runs.RDS")
+# run experiment ----------------------------------------------------------
 
 params = expand_grid(
   n_hist=c(100^2),
@@ -73,7 +42,7 @@ params = expand_grid(
 results100 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
                                       .options = furrr_options(seed = 3021377))
 
-saveRDS(results100, file = "sim_pipe2/results1000/sp1_asym_100_1000runs.RDS")
+saveRDS(results100, file = "../results/sp1_asym_100_1000runs.RDS")
 
 params = expand_grid(
   n_hist=c(200^2),
@@ -87,7 +56,7 @@ params = expand_grid(
 results200 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
                                       .options = furrr_options(seed = 3021377))
 
-saveRDS(results200, file = "sim_pipe2/results1000/sp1_asym_200_1000runs.RDS")
+saveRDS(results200, file = "../results/sp1_asym_200_1000runs.RDS")
 
 params = expand_grid(
   n_hist=c(300^2), 
@@ -101,7 +70,7 @@ params = expand_grid(
 results300 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
                                        .options = furrr_options(seed = 3021377))
 
-saveRDS(results300, file = "sim_pipe2/results1000/sp1_asym_300_1000runs.RDS")
+saveRDS(results300, file = "../results/sp1_asym_300_1000runs.RDS")
 
 params = expand_grid(
   n_hist=c(400^2), 
@@ -115,7 +84,7 @@ params = expand_grid(
 results400 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
                                        .options = furrr_options(seed = 3021377))
 
-saveRDS(results400, file = "sim_pipe2/results1000/sp1_asym_400_1000runs.RDS")
+saveRDS(results400, file = "../results/sp1_asym_400_1000runs.RDS")
 
 params = expand_grid(
   n_hist=c(500^2), 
@@ -129,7 +98,7 @@ params = expand_grid(
 results500 = 1:1000 %>% future_map_dfr(~params %>% pmap_df(experiment),
                                        .options = furrr_options(seed = 3021377))
 
-saveRDS(results500, file = "sim_pipe2/results1000/sp1_asym_500_1000runs.RDS")
+saveRDS(results500, file = "../results/sp1_asym_500_1000runs.RDS")
 
 
 # examine result ----------------------------------------------------------
