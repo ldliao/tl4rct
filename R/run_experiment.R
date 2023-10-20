@@ -3,10 +3,10 @@ library(magrittr)
 library(tidyverse)
 library(furrr)
 
-source("~/transfer_learning_prog/sim_pipe2/dgp2.R")
-source("~/transfer_learning_prog/sim_pipe2/discreteSL.R")
-source("~/transfer_learning_prog/sim_pipe2/estimators.R")
-source("~/transfer_learning_prog/sim_pipe2/experiment.R")
+source("dgp.R")
+source("discreteSL.R")
+source("estimators.R")
+source("experiment.R")
 
 plan(multisession, workers=59)
 
