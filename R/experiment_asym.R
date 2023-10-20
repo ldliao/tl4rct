@@ -1,4 +1,4 @@
-# script 5: Asymptotic behavioral experiment #
+# script 5: Asymptotic behavior experiment #
 
 experiment = function(n_hist, n_trial,
                       p=p,
