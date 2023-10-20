@@ -3,7 +3,7 @@ library(magrittr)
 library(ggplot2)
 library(stringr)
 library(cowplot)
-setwd("~/Docs/Homework/SP23/prognostic_tmle/simulation/simulation_results/")
+setwd("simulation_results/")
 
 sp0_200runs <- readRDS("sp0_200runs.RDS")
 sp01_200runs <- readRDS("sp01_200runs.RDS")
